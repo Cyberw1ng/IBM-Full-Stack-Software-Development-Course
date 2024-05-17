@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Best Car Dealership</title>
+    <!-- Bootstrap CSS Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles (if needed) */
+        .container { 
+            border-top: 10px solid black;
+            padding-top: 8%;
+            border-left: 1px solid #000; /* Vertical line on the left */
+            border-right: 3px solid #000; /* Vertical line on the right */
+        }
+        
+        .additional-box {
+            text-align: center; /* Center align the content inside the box */
+        }
+
+        img {
+            max-width: 100%; /* Make sure the image doesn't exceed its parent container */
+            height: auto; /* Maintain aspect ratio */
+            margin-top: 20px; /* Add some margin between the text and the image */
+            box-shadow: 2px 2px;
+            border-radius: 10%;
+        }
+
+        .c img {
+            max-width: 5%;
+            height: 5%;
+            margin-right: 2%;
+            margin-top: .5%;
+            box-shadow: 2px 2px;
+            border-radius: 10%;
+        }
+
+        .c p {
+            margin-right: 2%;
+        }
+
+        button {
+            margin-top: .5%;
+            height: 60%;
+        }
+
+        .nav-item:hover {
+            font-weight: bold;
+        }
+
+        
+    </style>
+</head>
+
+<body class="bg-secondary">
+    <div class="conatiner bg-dark">
+        <h1 class="text-white-50 bg-dark p-3">Best Car Dealership</h1>
+
+    <!-- Add a nav bar here -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex justify-content-between">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" href="..">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="">About <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" href="../contact">Contact</a>
+                    </li>
+                    <!-- Add more navigation items as needed -->
+                </ul>
+            </div>
+            <!-- {% if user.is_authenticated %} -->
+            <div style="padding-right: 2%;" class="c d-flex justify-content-end g-4">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/avatar-icon.png">
+                <p class="lead text-white-50">{{user.username}}</p>
+                <form method="post" action="{% url 'djangoapp:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-white">Logout</button>
+                </form>
+            </div>
+            <!-- {% else %} -->
+            <div style="padding-right: 2%;">
+                <form method="post" action="{% url 'djangoapp:login' %}">
+                    {% csrf_token %}
+                    <input class="input-group-sm" placeholder="username" type="text" name="username">
+                    <input class="input-group-sm" placeholder="password" type="password" name="password">
+                    <button type="submit" class="btn-outline-secondary">Login</button>
+                </form>
+                <a class="btn-outline-dark" href="../signup/">Sign Up</a>
+            </div>
+            <!-- {% endif %} -->
+        </nav>
+    </div>
+    <div class="container mt-5 bg-white">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="text-center mb-4">
+                    <h1 class="display-4">Welcome to Best Cars Dealership</h1>
+                    <p class="lead">Home to the best cars in North America. We sell domestic and imported cars at reasonable prices.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="text-center mb-4">
+                    <p class="text-secondary-emphasis">We are a top car seller in North America and are ready to serve you whenever you need it. Feel free to look around and contact us with any questions!</p>
+                    <p class="text-secondary-emphasis">More text</p>
+                    <img src="https://cdn.pixabay.com/photo/2019/07/07/14/03/fiat-500-4322521_1280.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

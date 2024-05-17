@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
+
+</head>
+<style>
+    .container {
+        margin: 0 auto;
+        padding: 20px;
+        border-left: 2px solid #000; /* Vertical line on the left */
+        border-right: 2px solid #000; /* Vertical line on the right */
+    }
+
+    .additional-box {
+        text-align: center; /* Center align the content inside the box */
+    }
+
+    .c img {
+        max-width: 5%;
+        height: 5%;
+        margin-right: 2%;
+        box-shadow: 2px 2px;
+        border-radius: 10%;
+    }
+
+    .c p {
+        margin-right: 2%;
+    }
+
+    button {
+        margin-top: 0%;
+        height: 60%;
+    }
+
+    .nav-item:hover {
+        font-weight: bold;
+    }
+
+    body {
+        background-image: url("https://cdn.pixabay.com/photo/2014/09/07/22/34/car-race-438467_640.jpg");
+        background-size: cover;
+    }
+
+    .review-card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+    .review-card h3 {
+        margin-bottom: 10px;
+    }
+
+    .review-card h4 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .review-card input {
+        margin-left: 20%;
+        margin-bottom: 10px;
+    }
+
+
+</style>
+    <body>
+        <div class="bg-dark">
+            <h1 class="text-white-50 bg-dark p-3">Best Car Dealership</h1>
+        <!-- Add a nav bar here -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex justify-content-between">
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="../..">Home<span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" href="../../about/">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white-50" href="../../contact/">Contact</a>
+                        </li>
+                        <!-- Add more navigation items as needed -->
+                    </ul>
+                </div>
+                <!-- {% if user.is_authenticated %} -->
+                <div style="padding-right: 2%;" class="c d-flex justify-content-end g-4">
+                    <img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/avatar-icon.png">
+                    <p class="lead text-white-50">{{user.username}}</p>
+                    <form method="post" action="{% url 'djangoapp:logout' %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn-white">Logout</button>
+                    </form>
+                </div>
+                <!-- {% else %} -->
+                <div style="padding-right: 2%;">
+                    <form method="post" action="{% url 'djangoapp:login' %}">
+                        {% csrf_token %}
+                        <input class="input-group-sm" placeholder="username" type="text" name="username">
+                        <input class="input-group-sm" placeholder="password" type="password" name="password">
+                        <button type="submit" class="btn-outline-secondary">Login</button>
+                    </form>
+                    <a class="btn-outline-dark" href="signup/">Sign Up</a>
+                </div>
+                <!-- {% endif %} -->
+            </nav>
+        </div>
+    <!--Add review form here -->
+        <div>
+            <form class="review-card" method="post" action="{% url 'djangoapp:add_review' id %}">
+                {% csrf_token %}
+                <h4>Write your review here:</h4>
+                <textarea class="form-control" id="content" name="review" rows="2" required></textarea>
+                <div class="d-flex">
+                    <p>Check if you have made a purchase</p>
+                    <input class="form-check-input" type="checkbox" name="purchase" id="purchasecheck">
+                </div>
+                <p>Select car if you've made a purchase:</p>
+                <select>
+                    <option>BMW M5 2020</option>
+
+                </select><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>

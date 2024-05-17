@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Best Car Dealership</title>
+    <!-- Bootstrap CSS Link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Custom Styles (if needed) */
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            border-left: 2px solid #000; /* Vertical line on the left */
+            border-right: 2px solid #000; /* Vertical line on the right */
+        }
+        
+        .additional-box {
+            text-align: center; /* Center align the content inside the box */
+        }
+
+        img {
+            width: 150%; /* Make sure the image doesn't exceed its parent container */
+            height: auto; /* Add some margin between the text and the image */
+            box-shadow: 2px 2px;
+            border-radius: 10%;
+        }
+
+        .nav-item:hover {
+            font-weight: bold;
+        }
+
+        .element{
+            padding: 10%;
+        }
+
+        .c img {
+            max-width: 5%;
+            height: 5%;
+            margin-right: 2%;
+            box-shadow: 2px 2px;
+            border-radius: 10%;
+        }
+
+        .c p {
+            margin-right: 2%;
+        }
+
+        button {
+            margin-top: .5%;
+            height: 60%;
+        }
+        
+        body {
+            background-image: url("https://cdn.pixabay.com/photo/2016/09/06/13/37/maserati-gran-turismo-1649119_640.jpg");
+            background-size: cover;
+        }
+        
+    </style>
+</head>
+
+<body class="bg-secondary">
+    <div class="conatiner bg-dark">
+        <h1 class="text-white-50 bg-dark p-3">Best Car Dealership</h1>
+
+    <!-- Add a nav bar here -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-dark d-flex justify-content-between">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" href="..">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" href="../about">About</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link text-white" href="">Contact us <span class="sr-only">(current)</span></a>
+                    </li>
+                    <!-- Add more navigation items as needed -->
+                </ul>
+            </div>
+            <!-- {% if user.is_authenticated %} -->
+            <div style="padding-right: 2%;" class="c d-flex justify-content-end g-4">
+                <img src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/avatar-icon.png">
+                <p class="lead text-white-50">{{user.username}}</p>
+                <form method="post" action="{% url 'djangoapp:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-white">Logout</button>
+                </form>
+            </div>
+            <!-- {% else %} -->
+            <div style="padding-right: 2%;">
+                <form method="post" action="{% url 'djangoapp:login' %}">
+                    {% csrf_token %}
+                    <input class="input-group-sm" placeholder="username" type="text" name="username">
+                    <input class="input-group-sm" placeholder="password" type="password" name="password">
+                    <button type="submit" class="btn-outline-secondary">Login</button>
+                </form>
+                <a class="btn-outline-dark" href="../signup/">Sign Up</a>
+            </div>
+            <!-- {% endif %} -->
+        </nav>
+    </div>
+    <div class="container bg-white">
+        <div class="d-flex  gap-2">
+            <div class="element">
+                <h2 class="h-25">Contact person 1</h2>
+                <p class="lead">This section is supposed to tell everybody what this person does in the company and how nice he/she is.</p><br>
+                <p></p><p></p>
+                <p class="lead">That is to make people dare to contact!</p><br>
+                <p class="lead">Tel Nr: ########</p>
+                <p class="lead">Email: $$$@\\\.com</p>
+            </div>
+            <div class="element"><img src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535a489588e0fbe97f7fd8_peep-74.svg"></div>
+        </div>
+        <div class="d-flex gap-2">
+            <div class="element"><img src="https://assets.website-files.com/5e51c674258ffe10d286d30a/5e535d314600800f758ffa34_peep-99.svg"></div>
+            <div class="element">
+                <h2 class="h2-25">Contact person 2</h2>
+                <p class="lead">This section is supposed to tell everybody what this person does in the company and how nice he/she is.</p><br>
+                <p></p><p></p>
+                <p class="lead">That is to make people dare to contact!</p><br>
+                <p class="lead">Tel Nr: ########</p>
+                <p class="lead">Email: $$$@\\\.com</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
